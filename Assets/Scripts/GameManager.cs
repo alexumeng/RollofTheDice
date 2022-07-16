@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     // victory
     // lose
 
+    public static GameManager Instance;
+
     public GameState State;
 
     public static event Action<GameState> OnGameStateChanged;
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        UpdateGameState(Prep);
+        //UpdateGameState(Prep);
     }
 
     // Update is called once per frame

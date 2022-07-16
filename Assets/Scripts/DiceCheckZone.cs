@@ -48,23 +48,24 @@ public class DiceCheckZone : MonoBehaviour
         }
     }
 
+    public void assignChoices()
+    {
+        choicesList.Add("1"); //ChoiceLoader.choicesList; will fix this
+        int numbersPerChoice = 6 / choicesList.Count;
+        int choice = 0;
+        for (int i = 0; i < 6; i = i + numbersPerChoice)
+        {
+            int i_inc = i;
+            int x = 0;
+            while (x < numbersPerChoice)
+            {
+                possibilities[i_inc] = choicesList[choice];
+                i_inc++;
+                x++;
+            }
+            choice++;
+        }
+    }
+
 }
 
-public void assignChoices()
-{
-    List<string> choicesList = ChoiceLoader.choicesList;
-    int numbersPerChoice = 6 / choicesList.Count;
-    int choice = 0;
-    for (int i = 0; i < 6; i = i + numbersPerChoice)
-    {
-        int i_inc = i;
-        int x = 0;
-        while (x < numbersPerChoice)
-        {
-            possibilities[i_inc] = choicesList[choice];
-            i_inc++;
-            x++;
-        }
-        choice++;
-    }
-}
