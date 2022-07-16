@@ -22,6 +22,7 @@ public class DicePhysics : MonoBehaviour
         // button to drop the dice
         if(Input.GetKeyDown(KeyCode.Space) && diceVelocity.x == 0f && diceVelocity.y == 0f && diceVelocity.z == 0f)
         {
+
             DiceNumberToText.diceNumber = 0;
             float dirX = Random.Range(0, 500);
             float dirY = Random.Range(0, 500);
