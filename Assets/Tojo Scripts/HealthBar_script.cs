@@ -7,19 +7,19 @@ public class HealthBar_script : MonoBehaviour
 {
     private Image HealthBar;
     public float CurrentHealth;
-    private float MaxHealth = 100f;
-    WolfVariables_Script Wolves;
+    public float MaxHealth;
+    
 
     private void Start()
     {
         //find
         HealthBar = GetComponent<Image>();
-        Wolves = FindObjectOfType<WolfVariables_Script>();
+        
     }
 
     private void Update()
     {
-        CurrentHealth = Wolves.Health;
+        
         HealthBar.fillAmount = CurrentHealth / MaxHealth;
     }
 }
