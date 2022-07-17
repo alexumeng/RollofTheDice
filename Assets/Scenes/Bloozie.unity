@@ -181,9 +181,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceVelocity: {x: 0, y: 0, z: 0}
-  choices: 0
-  choicesList: []
-  possibilities: []
+  pickRoll: {fileID: 180398967}
+  onRoll: 0
+  settingArr:
+  - Graveyard
+  - Forest
+  - Castle
+  enemiesArr:
+  - Wolves
+  - Goblins
+  - Skeletons
+  difficultyArr:
+  - easy
+  - med
+  - hard
+--- !u!114 &180398967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3810262757585937843, guid: 4d124b079896b5645a293dd8d34a36ac, type: 3}
+  m_PrefabInstance: {fileID: 3810262757979799790}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90204a3a09e67dd4a93bc6a3b76b6753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &483682861
 GameObject:
   m_ObjectHideFlags: 0

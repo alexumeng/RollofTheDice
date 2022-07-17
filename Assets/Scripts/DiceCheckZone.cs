@@ -5,17 +5,18 @@ using UnityEngine;
 public class DiceCheckZone : MonoBehaviour
 {
     public Vector3 diceVelocity;
+    public DicePhysics pickRoll;
+    public int onRoll;
 
-    public int choices;
-
-    public List<string> choicesList = new List<string>();
-
-    public string[] possibilities = new string[6];
+    public string[] settingArr = { "Graveyard", "Forest", "Castle" };
+    public string[] enemiesArr = { "Wolves", "Goblins", "Skeletons" };
+    public string[] difficultyArr = { "Easy", "Medium", "Hard" };
 
     // Update is called once per frame
     void FixedUpdate()
     {
         diceVelocity = DicePhysics.diceVelocity;
+        onRoll = pickRoll.pickRoll;
     }
     
     // applies to all rigidbodies that enter the trigger (the dice trigger zone)
@@ -23,47 +24,103 @@ public class DiceCheckZone : MonoBehaviour
     {
         if (diceVelocity.x == 0f && diceVelocity.y == 0f && diceVelocity.z == 0f)
         {
-            switch (col.gameObject.name)
+            if (onRoll == 1)
+            {
+                switch (col.gameObject.name)
+                {
+                    case "Side1":
+                        DiceNumberToText.diceOutcome = settingArr[0]; // side 3 on top
+                        break;
+                    case "Side2":
+                        DiceNumberToText.diceOutcome = settingArr[0]; // side 4 on top
+                        break;
+                    case "Side3":
+                        DiceNumberToText.diceOutcome = settingArr[1]; // side 1 on top
+                        break;
+                    case "Side4":
+                        DiceNumberToText.diceOutcome = settingArr[1]; // side 2 on top
+                        break;
+                    case "Side5":
+                        DiceNumberToText.diceOutcome = settingArr[2]; // side 6 on top
+                        break;
+                    case "Side6":
+                        DiceNumberToText.diceOutcome = settingArr[2]; // side 5 on top
+                        break;
+
+                }
+            }
+            else if (onRoll == 2)
+            {
+                switch (col.gameObject.name)
+                {
+                    case "Side1":
+                        DiceNumberToText.diceOutcome = enemiesArr[0]; // side 3 on top
+                        break;
+                    case "Side2":
+                        DiceNumberToText.diceOutcome = enemiesArr[0]; // side 4 on top
+                        break;
+                    case "Side3":
+                        DiceNumberToText.diceOutcome = enemiesArr[1]; // side 1 on top
+                        break;
+                    case "Side4":
+                        DiceNumberToText.diceOutcome = enemiesArr[1]; // side 2 on top
+                        break;
+                    case "Side5":
+                        DiceNumberToText.diceOutcome = enemiesArr[2]; // side 6 on top
+                        break;
+                    case "Side6":
+                        DiceNumberToText.diceOutcome = enemiesArr[2]; // side 5 on top
+                        break;
+
+                }
+            }
+            else if (onRoll == 3)
+            {
+                switch (col.gameObject.name)
+                {
+                    case "Side1":
+                        DiceNumberToText.diceOutcome = difficultyArr[0]; // side 3 on top
+                        break;
+                    case "Side2":
+                        DiceNumberToText.diceOutcome = difficultyArr[0]; // side 4 on top
+                        break;
+                    case "Side3":
+                        DiceNumberToText.diceOutcome = difficultyArr[1]; // side 1 on top
+                        break;
+                    case "Side4":
+                        DiceNumberToText.diceOutcome = difficultyArr[1]; // side 2 on top
+                        break;
+                    case "Side5":
+                        DiceNumberToText.diceOutcome = difficultyArr[2]; // side 6 on top
+                        break;
+                    case "Side6":
+                        DiceNumberToText.diceOutcome = difficultyArr[2]; // side 5 on top
+                        break;
+
+                }
+            }
+/*            switch (col.gameObject.name)
             {
                 case "Side1":
-                    DiceNumberToText.diceOutcome = choicesList[2]; // side 3 on top
+                    DiceNumberToText.diceOutcome = 3; // side 3 on top
                     break;
                 case "Side2":
-                    DiceNumberToText.diceOutcome = choicesList[3]; // side 4 on top
+                    DiceNumberToText.diceOutcome = 4; // side 4 on top
                     break;
                 case "Side3":
-                    DiceNumberToText.diceOutcome = choicesList[0]; // side 1 on top
+                    DiceNumberToText.diceOutcome = 1; // side 1 on top
                     break;
                 case "Side4":
-                    DiceNumberToText.diceOutcome = choicesList[1]; // side 2 on top
+                    DiceNumberToText.diceOutcome = 2; // side 2 on top
                     break;
                 case "Side5":
-                    DiceNumberToText.diceOutcome = choicesList[5]; // side 6 on top
+                    DiceNumberToText.diceOutcome = 6; // side 6 on top
                     break;
                 case "Side6":
-                    DiceNumberToText.diceOutcome = choicesList[4]; // side 5 on top
+                    DiceNumberToText.diceOutcome = 5; // side 5 on top
                     break;
 
-            }
-        }
-    }
-
-    public void assignChoices()
-    {
-        choicesList.Add("1"); //ChoiceLoader.choicesList; will fix this
-        int numbersPerChoice = 6 / choicesList.Count;
-        int choice = 0;
-        for (int i = 0; i < 6; i = i + numbersPerChoice)
-        {
-            int i_inc = i;
-            int x = 0;
-            while (x < numbersPerChoice)
-            {
-                possibilities[i_inc] = choicesList[choice];
-                i_inc++;
-                x++;
-            }
-            choice++;
+            }*/
         }
     }
 
